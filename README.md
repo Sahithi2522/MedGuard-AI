@@ -14,7 +14,7 @@ Open <http://127.0.0.1:8000>. The server binds to localhost and persists records
 
 ## GitHub Pages preview
 
-The GitHub Actions workflow publishes a static presentation preview at <https://sahithi2522.github.io/MedGuard-AI/>. It contains the landing page and visual sections only; sign-in, dashboards, and interactive workflows require the local Python server. GitHub Pages does not run Python or provide a database.
+The GitHub Actions workflow publishes a static presentation preview at <https://sahithi2522.github.io/MedGuard-AI/> on every push to `main`. It contains the landing page and visual sections only; sign-in, dashboards, and interactive workflows require the local Python server. GitHub Pages does not run Python or provide a database.
 
 The supplied `assetsmedical-background.mp4` is served as a muted, looping page background with a captured poster frame and subtle scroll parallax. The background respects the browser's reduced-motion preference.
 
