@@ -1,0 +1,5 @@
+node_modules/
+medguard.sqlite3
+private_uploads/
+__pycache__/
+*.py[cod]

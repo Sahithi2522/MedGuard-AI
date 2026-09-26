@@ -1,0 +1,15 @@
+{
+  "name": "medguard-ai-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "TypeScript UI decorations and Lucide icons for the MedGuard AI local demo",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && esbuild src/decorations.ts --bundle --format=iife --target=es2020 --outfile=decorations.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "lucide": "^1.48.0",
+    "typescript": "^7.0.2"
+  }
+}
