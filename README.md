@@ -12,9 +12,9 @@ python server.py
 
 Open <http://127.0.0.1:8000>. The server binds to localhost and persists records in `medguard.sqlite3`. Set `PORT` to change the port or `MEDGUARD_DB` to change the SQLite path. For an HTTPS deployment behind a trusted TLS terminator, set `MEDGUARD_COOKIE_SECURE=1`. This demo is not hardened for internet-facing deployment.
 
-## Deploy to Render
+## Deploy to Railway
 
-The `render.yaml` Blueprint configures a free Python web service. In Render, create a new Blueprint from this GitHub repository and deploy it. Render provides the live URL after the service becomes healthy. Free instances use temporary storage and may sleep when idle, so database records, sessions, and uploaded files can reset after a restart. Keep this deployment limited to synthetic demo data.
+Deploy this repository as a Docker service on Railway. The included `Dockerfile` runs the Python app directly; no external database is required because the demo initializes its local SQLite database on startup. Railway provides the public URL after the `/api/health` check succeeds. The local database and uploads are ephemeral and reset when the container is replaced. Keep this deployment limited to synthetic demo data.
 
 The supplied `assetsmedical-background.mp4` is served as a muted, looping page background with a captured poster frame and subtle scroll parallax. The background respects the browser's reduced-motion preference.
 
