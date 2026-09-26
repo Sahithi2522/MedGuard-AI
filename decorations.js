@@ -218,12 +218,13 @@
 
   // src/decorations.ts
   var iconSet = { Activity, HeartPulse, ShieldCheck, Sparkles };
+  var assetBase = new URL(".", document.currentScript?.baseURI ?? location.href);
   function mountMedicalVideoBackground() {
     if (document.querySelector(".medical-video-background")) return;
     const shell = document.createElement("div");
     shell.className = "medical-video-background";
     const video = document.createElement("video");
-    video.src = "/assetsmedical-background.mp4";
+    video.src = new URL("assetsmedical-background.mp4", assetBase).href;
     video.autoplay = true;
     video.muted = true;
     video.loop = true;

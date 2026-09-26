@@ -1,6 +1,7 @@
 import { Activity, HeartPulse, ShieldCheck, Sparkles, createIcons } from 'lucide';
 
 const iconSet = { Activity, HeartPulse, ShieldCheck, Sparkles };
+const assetBase = new URL('.', document.currentScript?.baseURI ?? location.href);
 
 function mountMedicalVideoBackground(): void {
   if (document.querySelector('.medical-video-background')) return;
@@ -9,7 +10,7 @@ function mountMedicalVideoBackground(): void {
   shell.className = 'medical-video-background';
 
   const video = document.createElement('video');
-  video.src = '/assetsmedical-background.mp4';
+  video.src = new URL('assetsmedical-background.mp4', assetBase).href;
   video.autoplay = true;
   video.muted = true;
   video.loop = true;
