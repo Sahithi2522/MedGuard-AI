@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 DB_PATH = Path(os.environ.get("MEDGUARD_DB", ROOT / "medguard.sqlite3"))
-UPLOAD_DIR = ROOT / "private_uploads"
+UPLOAD_DIR = Path(os.environ.get("MEDGUARD_UPLOAD_DIR", ROOT / "private_uploads"))
 COOKIE_SECURE = os.environ.get("MEDGUARD_COOKIE_SECURE", "0") == "1"
 SESSION_SECONDS = 8 * 60 * 60
 ROLES = {"patient", "doctor", "pharmacist", "admin", "caregiver"}
@@ -1093,5 +1093,6 @@ class Handler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     initialize()
     port = int(os.environ.get("PORT", "8000"))
-    print(f"MedGuard AI demo running at http://127.0.0.1:{port}")
-    ThreadingHTTPServer(("127.0.0.1", port), Handler).serve_forever()
+    host = os.environ.get("HOST", "127.0.0.1")
+    print(f"MedGuard AI demo listening on {host}:{port}")
+    ThreadingHTTPServer((host, port), Handler).serve_forever()
